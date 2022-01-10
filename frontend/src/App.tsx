@@ -1,6 +1,10 @@
+import Navbar from "./components/Navbar";
+
+
+// Aqui no componente App é chamado o componente Navbar.
 function App() {
   return (
-    <h1>Página Principal</h1>
+    <Navbar />
   );
 }
 
