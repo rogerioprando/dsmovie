@@ -32,7 +32,11 @@ function Listing() {
     /* 
         useEffect: Uma função para ser executada, e uma lista de objetos que vai ser observada. 
         Sempre que alterar algo nos objetos observados ele executa a função novamente 
-        se a lista ficar vazia só executa uma quando componente for carregado */
+        se a lista ficar vazia só executa uma quando componente for carregado 
+        
+        no final do useEffect tem a lista pageNumber que é sempre observado, sempre que pageNumber muda
+        é executada uma nova requisição get com o novo valor de pageNumber
+    */
 
     useEffect(() => {
         axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}`)
@@ -55,9 +59,15 @@ function Listing() {
 
     */
 
+    // função lambda: recebe o novo número da página e muda o estado do useState pageNumber
+    const handlePageChange = (newPageNumber : number) => {
+        setPageNumber(newPageNumber);
+    }
+
     return (
         <>
-            <Pagination />
+            <Pagination page={page} onChange={handlePageChange}/>
+
             <div className="container">
                 <div className="row">
 
