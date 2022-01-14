@@ -7,6 +7,7 @@ type Props = {
     movie: Movie;
 }
 
+// componente MovieCard recebe como argumento uma props que é o movie
 function MovieCard( { movie } : Props) {
 
     // movie era um objeto que foi definido manualmente, com Props ele chega como argumento
